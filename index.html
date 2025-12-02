@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulación de Dados</title>
+</head>
+<body style="font-family: Arial; padding: 20px;">
+
+    <h1>Simulacion de 10 millones de tiradas de dos dados</h1>
+
+    <button id="simularBtn">Iniciar Simulación</button>
+
+    <h2>Resultados:</h2>
+    <pre id="resultados"></pre>
+
+    <script>
+        document.getElementById("simularBtn").addEventListener("click", () => {
+
+            const tiradas = 10_000_000;
+
+            const contador = {
+                2: 0, 3: 0, 4: 0, 5: 0, 6: 0,
+                7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0
+            };
+
+            for (let i = 0; i < tiradas; i++) {
+                const dado1 = Math.floor(Math.random() * 6) + 1;
+                const dado2 = Math.floor(Math.random() * 6) + 1;
+                const suma = dado1 + dado2;
+
+                contador[suma]++;
+            }
+
+            let maxNumero = null;
+            let maxVeces = -1;
+
+            for (const numero in contador) {
+                if (contador[numero] > maxVeces) {
+                    maxVeces = contador[numero];
+                    maxNumero = numero;
+                }
+            }
+
+            const texto =
+                "Conteo:\n" +
+                JSON.stringify(contador, null, 2) +
+                `\n \n  El número que mas veces cayó fue: ${maxNumero} con ${maxVeces} veces.`;
+
+            document.getElementById("resultados").textContent = texto;
+        });
+    </script>
+
+</body>
+</html>
