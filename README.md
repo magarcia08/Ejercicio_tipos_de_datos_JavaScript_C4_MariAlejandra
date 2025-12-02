@@ -18,8 +18,8 @@ Lo usamos para la creacion del boton y que este envie el evento al darle click
 Declaramos la variable de las n veces que vamos a realizar la simulacion
 
         const contador = {
-                2: 0, 3: 0, 4: 0, 5: 0, 6: 0,
-                7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0
+                1: 0 , 2: 0, 3: 0, 4: 0, 5: 0, 6: 0,
+                7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0, 13: 0, 14; 0, 15: 0
             };
 
 Este contador es una forma de evaluar cuantas veces cae el numero y asi evaluar cual es el numero que mas veces cae
@@ -46,7 +46,7 @@ Hacemos el for para hacer el ciclo, inicia de 0 y aumenta de acuerdo a las tirad
 
 Luego hacemos otro ciclo para calcular las veces y cada numero que tendra sus numero aleatorios
 
-const texto =
+        const texto =
                 "Conteo:\n" +
                 JSON.stringify(contador, null, 2) +
                 `\n \n  El número que mas veces cayó fue: ${maxNumero} con ${maxVeces} veces.`;
